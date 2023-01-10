@@ -4,13 +4,12 @@ import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import { ReactComponent as BasketLogo } from '../../assets/basket.svg';
 import './navigation.style.scss'
 import { useDispatch, useSelector } from "react-redux";
-import { amountCalculater, removeBasket, removeItem, openDarkMode } from '../../features/product/productSlice';
+import { amountCalculater, removeBasket, removeItem } from '../../features/product/productSlice';
 
 
 const Navigation = () => {
 
-    const { basket, total, amount, darkMode } = useSelector((store) => store.product)
-    // console.log(darkMode);
+    const { basket, total, amount } = useSelector((store) => store.product)
 
     const dispatch = useDispatch();
 
@@ -25,10 +24,6 @@ const Navigation = () => {
                     <CrwnLogo className="logo" />
                 </Link>
                 <div className="nav-links-container">
-                    <div>
-                        <input  type="checkbox" id="toggle" />
-                        <label onClick={console.log(darkMode)} htmlFor="toggle"></label>
-                    </div>
                     <Link to='/shop' className="nav-link">SHOP</Link>
                     <Link to='/sign-in' className="nav-link">SIGN IN</Link>
                     <p className="amount">{amount}</p>
@@ -48,10 +43,8 @@ const Navigation = () => {
                             <h4>Total : {total}$</h4>
                             <button className="delete-basket-button" onClick={() => dispatch(removeBasket())}>Sepeti Temizle</button>
                             <button className="basket-button">Sepete Git</button>
-
                         </div>
                     </div>
-
                 </div>
             </div>
             <Outlet />

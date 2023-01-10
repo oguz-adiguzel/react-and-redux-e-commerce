@@ -6,7 +6,6 @@ const initialState = {
     basket: [],
     amount: 0,
     total: 0,
-    darkMode: false,
 }
 
 const productSlice = createSlice({
@@ -34,12 +33,9 @@ const productSlice = createSlice({
         amountCalculater: (state) => {
             let numberOfProducts = state.basket.length
             state.amount = numberOfProducts
-        },
-        openDarkMode: (state) => {
-            state.darkMode = !state.darkMode
         }
     }
 })
 
 export default productSlice.reducer
-export const { addBasket, removeBasket, totalCalculater, removeItem, amountCalculater, openDarkMode } = productSlice.actions
+export const { addBasket, removeBasket, totalCalculater, removeItem, amountCalculater } = productSlice.actions

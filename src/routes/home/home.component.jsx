@@ -30,7 +30,7 @@ function Home() {
         }
     ]
 
-    
+
 
     return (
         <div>
