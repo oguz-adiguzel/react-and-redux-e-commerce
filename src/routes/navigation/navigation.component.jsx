@@ -1,10 +1,10 @@
 import { Fragment, useEffect } from "react";
-import { Outlet, Link } from "react-router-dom"
+import { Outlet, Link, useNavigate } from "react-router-dom"
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import { ReactComponent as BasketLogo } from '../../assets/basket.svg';
 import './navigation.style.scss'
 import { useDispatch, useSelector } from "react-redux";
-import { amountCalculater, removeBasket, removeItem } from '../../features/product/productSlice';
+import { amountCalculater, removeBasket, removeItem, totalCalculater } from '../../features/product/productSlice';
 
 
 const Navigation = () => {
@@ -12,6 +12,7 @@ const Navigation = () => {
     const { basket, total, amount } = useSelector((store) => store.product)
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(amountCalculater())
@@ -42,7 +43,7 @@ const Navigation = () => {
                             }
                             <h4>Total : {total}$</h4>
                             <button className="delete-basket-button" onClick={() => dispatch(removeBasket())}>Sepeti Temizle</button>
-                            <button className="basket-button">Sepete Git</button>
+                            <button onClick={() => navigate('basket')} className="basket-button">Sepete Git</button>
                         </div>
                     </div>
                 </div>

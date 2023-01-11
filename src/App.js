@@ -11,6 +11,7 @@ import Jackets from './routes/jackets/jackets.component';
 import Sneakers from './routes/sneakers/sneakers.component';
 import Womens from './routes/womens/womens.component';
 import Mens from './routes/mens/mens.component';
+import Basket from './routes/basket/basket.component';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path='sneakers' element={<Sneakers />} />
             <Route path='womens' element={<Womens />} />
             <Route path='mens' element={<Mens />} />
+            <Route path='basket' element={<Basket />} />
           </Route>
         </Routes>
       </BasketProvider>
